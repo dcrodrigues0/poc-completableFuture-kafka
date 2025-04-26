@@ -1,0 +1,18 @@
+{
+  "namespace": "com.test.syncapi.avro",
+  "type": "record",
+  "name": "MessageRequest",
+  "fields": [
+    {
+      "name": "correlationId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "someMessage",
+      "type": "string"
+    }
+  ]
+}
