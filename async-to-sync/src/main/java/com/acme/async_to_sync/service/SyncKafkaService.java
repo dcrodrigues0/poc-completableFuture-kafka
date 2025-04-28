@@ -19,8 +19,8 @@ public class SyncKafkaService {
     private final KafkaTemplate<String, MessageRequest> kafkaTemplate;
     public final Map<UUID, CompletableFuture<String>> pendingRequests = new ConcurrentHashMap<>();
 
-    private final String requestTopic = "comando-autorizador";
-    private final String responseTopic = "resposta-comando-autorizador";
+    private final String requestTopic = "comando";
+    private final String responseTopic = "resposta-comando";
 
     public SyncKafkaService(KafkaTemplate<String, MessageRequest> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;

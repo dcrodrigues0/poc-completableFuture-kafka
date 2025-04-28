@@ -15,7 +15,7 @@ public class ResponderKafkaListener {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    @KafkaListener(topics = "comando-autorizador", groupId = "responder-service")
+    @KafkaListener(topics = "comando", groupId = "responder-service")
     public void listen(ConsumerRecord<String, MessageRequest> record) {
         MessageRequest request = record.value();
         System.out.println("Request recebido correlationId: " + request.getCorrelationId());
@@ -25,6 +25,6 @@ public class ResponderKafkaListener {
                 .setSomeMessage("Processado: " + request.getSomeMessage())
                 .build();
 
-        kafkaTemplate.send("resposta-comando-autorizador", response);
+        kafkaTemplate.send("resposta-comando", response);
     }
 }
